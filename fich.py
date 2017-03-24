@@ -19,8 +19,19 @@ class Ficha():
         att=['nomechar', 'nomepessoa','vida' , 'loucura' ,'str' ,'int' ,'sab' ,'dex' ,'perk','pb']
         a=0
         for n in att:
-            filedata=re.sub('{0}{{.*?}}'.format(n),'{0}{{{1}}}'.format(n,row[a]),filedata)
+
+            if n != "vida" and n != "loucura" and n != "nomechar" and n !="nomepessoa": 
+                mod=(int(row[a])-10)/2
+                filedata=re.sub('mod{0}{{.*?}}'.format(n),'mod{0}{{{1}}}'.format(n,int(mod)),filedata)
+            if n == "str":
+                moddef=(int(row[a]-10)/2+10)
+            if n == "dex":
+                modesq=(int(row[a]-10)/2+10)
+            filedata=re.sub('\\\{0}{{.*?}}'.format(n),'\\\{0}{{{1}}}'.format(n,row[a]),filedata)
             a=a+1
+        print(moddef,modesq)
+        filedata=re.sub('defe{.*?}','defe{{{0}}}'.format(int(moddef)),filedata)
+        filedata=re.sub('esq{.*?}','esq{{{0}}}'.format(int(modesq)),filedata)
         with open('sheet.tex', 'w') as file:
             file.write(filedata)
     def Loucura(self,nome=""):

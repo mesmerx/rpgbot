@@ -1,4 +1,5 @@
-
+import sys
+from map import *
 class drawmap():
     def __init__(self,x,y,w,a,nome=""):
         self.app = QApplication(sys.argv)

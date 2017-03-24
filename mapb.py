@@ -1,15 +1,16 @@
 from api import *
 from map import *
-from drawmap import *
 from sql import *
 from fich import *
-
+from drawmap import *
+import sys,os
 x=API("375722367:AAH4HoD2MITcxT8tS_Xwr-HdhLh_3-0ONVE")
 sql=Connect("char.db")
-sql.CreateDb("(nomechar VARCHAR(20), nomepessoa VARCHAR(20),vida INT, loucura INT,str INT,int INT,sab INT,dex INT,perk INT, pb INT)","char")
-sql.CreateDb("(nomechar VARCHAR(20), habilidade VARCHAR(20),dhabilidade VARCHAR(2000),tipo VARCHAR(20))","habilidade")
-sql.CreateDb("(nomechar VARCHAR(20),item VARCHAR(20), dano VARCHAR(20),atributo VARCHAR(20),tipo VARCHAR(20),mod VARCHAR(20))","item")
-            
+sql.CreateDb("(nomechar VARCHAR(100), nomepessoa VARCHAR(20),vida INT, loucura INT,str INT,int INT,sab INT,dex INT,perk INT, pb INT)","char")
+sql.CreateDb("(nomechar VARCHAR(100), habilidade VARCHAR(20),dhabilidade VARCHAR(2000),tipo VARCHAR(20))","habilidade")
+sql.CreateDb("(nomechar VARCHAR(100),item VARCHAR(20), dano VARCHAR(20),atributo VARCHAR(20),tipo VARCHAR(20),mod VARCHAR(20))","item")
+sql=Connect("mapa.db")
+sql.CreateDb("(nomeobj VARCHAR(100),i INT,j INT,x INT,y INT,cc INT,color VARCHAR(100))","obmapa")
 while True:
     try:
         global dist
@@ -148,8 +149,10 @@ while True:
     except IndexError as e :
         pass
     except Exception as inst: 
-        print(type(inst))     # the exception instance
-        x.Sendmsg(inst.args)      # arguments stored in .args
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        print(exc_type, fname, exc_tb.tb_lineno)
+        
         x.Sendmsg(inst)           # __str__ allows args to printed directly
         x.Clean()
 

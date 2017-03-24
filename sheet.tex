@@ -1,24 +1,28 @@
 \documentclass[a4paper,17pt]{extarticle}
+\nonstopmode
 \pagestyle{empty}
 \usepackage[margin=4pt]{geometry}
 \usepackage{tcolorbox}
 \newfont{\logofont}{cmbx10 scaled\magstep5}
 
 \begin{document}
-\def\nomechar{mesmer}        
-\def\nomepessoa{mesmer}        
+\def\nomechar{Gumersilda}        
+\def\nomepessoa{Kisq}        
 \def\description{}
-\def\int{4}                        
-\def\modint{4}                        
-\def\sab{5}                        
-\def\modsab{5}                        
-\def\dex{6}                        
-\def\moddex{6}                        
-\def\perk{7}
-\def\modperk{7}
-\def\loucura{2}
-\def\str{3}                        
-\def\modstr{3}                        
+\def\int{13}                        
+\def\modint{1}                        
+\def\sab{14}                        
+\def\modsab{2}                        
+\def\dex{13}                        
+\def\moddex{1}                        
+\def\perk{13}
+\def\vida{12}
+\def\modperk{1}
+\def\loucura{0}
+\def\str{20}   
+\def\defe{15}
+\def\esq{11}
+\def\modstr{5}                        
 
 \newcommand{\cspot}[0]{\begin{picture}(10,0.7)(0,0)\put(0.375,0.375){\circle*{0.2in}}
 \end{picture}
@@ -27,27 +31,43 @@
 \end{picture}
 }
 \begin{tcolorbox}[colback=black!5!white]
-    \parbox{0.6\textwidth}{\logofont FICHA \newline\vspace{2}  \logofont DRPG}
-    \parbox{0.4\textwidth}{\logofont PERSONAGEM \newline\vspace{2} \logofont \nomechar}
+    \parbox{0.6\textwidth}{\logofont FICHA \newline\vspace{2pt}  \logofont DRPG}
+    \parbox{0.4\textwidth}{\logofont PERSONAGEM \newline\vspace{2pt} \logofont \nomechar}
 
 \end{tcolorbox}
 \noindent\parbox[t]{0.72\textwidth}{
-
 \begin{tcolorbox}[colback=black!5!white,title=nome do jogabor]
     \bf Nome do jogador: \nomepessoa
 \end{tcolorbox}
+
+\parbox{0.1\textwidth}{
+\begin{tcolorbox}[colback=black!5!white,title=vida]
+    \bf \vida
+\end{tcolorbox}
+}
+\parbox{0.1\textwidth}{
+    \begin{tcolorbox}[colback=black!5!white,title=def]
+    \bf \defe
+    \end{tcolorbox}
+}
+\parbox{0.1\textwidth}{
+\begin{tcolorbox}[colback=black!5!white,title=esq]
+    \bf \esq
+\end{tcolorbox}
+}
 }
 \raisebox{-0.3in}{
 \hskip-0.2cm\parbox{0.27\textwidth}{
 \begin{tcolorbox}[colback=black!5!white,title=status]
-    \begin{tabular}{p{0.73in}p{0.3in}p}
+\bf    \begin{tabular}{p{0.73in}p{0.3in}p}
 
     str:                 &\str &\modstr\\
     dex:                 &\dex &\moddex \\
     int:                 &\int &\modint\\
+    sab:                 &\sab &\modsab\\
     perk:                 &\perk &\modperk\\
             \begin{tabular}{cccccc}
-\cspot & \cspot & \spot  & \spot & \spot & \spot \\
+\cspot & \cspot & \cspot & \spot & \spot & \spot \\
             \end{tabular}
             \end{tabular}
 \end{tcolorbox}
