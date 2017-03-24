@@ -1,0 +1,55 @@
+\documentclass[a4paper,17pt]{extarticle}
+\pagestyle{empty}
+\usepackage[margin=4pt]{geometry}
+\usepackage{tcolorbox}
+\newfont{\logofont}{cmbx10 scaled\magstep5}
+
+\begin{document}
+\def\nomechar{mesmer}        
+\def\nomepessoa{mesmer}        
+\def\description{}
+\def\int{4}                        
+\def\modint{4}                        
+\def\sab{5}                        
+\def\modsab{5}                        
+\def\dex{6}                        
+\def\moddex{6}                        
+\def\perk{7}
+\def\modperk{7}
+\def\loucura{2}
+\def\str{3}                        
+\def\modstr{3}                        
+
+\newcommand{\cspot}[0]{\begin{picture}(10,0.7)(0,0)\put(0.375,0.375){\circle*{0.2in}}
+\end{picture}
+}
+\newcommand{\spot}[0]{\begin{picture}(10,0.7)(0,0)\put(0.375,0.375){\circle{0.2in}}
+\end{picture}
+}
+\begin{tcolorbox}[colback=black!5!white]
+    \parbox{0.6\textwidth}{\logofont FICHA \newline\vspace{2}  \logofont DRPG}
+    \parbox{0.4\textwidth}{\logofont PERSONAGEM \newline\vspace{2} \logofont \nomechar}
+
+\end{tcolorbox}
+\noindent\parbox[t]{0.72\textwidth}{
+
+\begin{tcolorbox}[colback=black!5!white,title=nome do jogabor]
+    \bf Nome do jogador: \nomepessoa
+\end{tcolorbox}
+}
+\raisebox{-0.3in}{
+\hskip-0.2cm\parbox{0.27\textwidth}{
+\begin{tcolorbox}[colback=black!5!white,title=status]
+    \begin{tabular}{p{0.73in}p{0.3in}p}
+
+    str:                 &\str &\modstr\\
+    dex:                 &\dex &\moddex \\
+    int:                 &\int &\modint\\
+    perk:                 &\perk &\modperk\\
+            \begin{tabular}{cccccc}
+\cspot & \cspot & \spot  & \spot & \spot & \spot \\
+            \end{tabular}
+            \end{tabular}
+\end{tcolorbox}
+}}
+\end{document}
