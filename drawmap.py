@@ -11,3 +11,5 @@ class drawmap():
         self.ex.take_screenshot(filename)
     def cleardraw(self,i,j,n,x,y,cc=1,color=""):
         self.ex.deletedraw(i,j,n,x,y,cc,color)
+    def clearmap(self):
+        self.ex.deletemap()

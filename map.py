@@ -15,8 +15,18 @@ class Map(QWidget):
         self.color=[]
         self.initUI(x,y,w,a,n)
    
+    def deletemap(self):
+        del self.i[:]
+        del self.j[:]
+        del self.n[:]
+        del self.x[:]
+        del self.y[:]
+        del self.c[:]
+        del self.color[:]
+    
     def deletedraw(self,i,j,n,x,y,cc,color):
         b=0
+        print("oi2")
         for k in self.i:
             if self.i[b]==i and self.j[b]==j and  self.n[b]==n and self.x[b]==x and self.y[b]==y and self.c[b]==cc and self.color[b]==color:
                 del self.i[b]
@@ -26,6 +36,7 @@ class Map(QWidget):
                 del self.y[b]
                 del self.c[b]
                 del self.color[b]
+                print("oi")
             b=b+1
     
     def changedraw(self,i,j,n,x,y,c,color):
@@ -72,8 +83,8 @@ class Map(QWidget):
         
         pen = QPen(Qt.black, 2, Qt.SolidLine)
             
-        for n in range (numbery):
-            for b in range(numberx):
+        for n in range (int(numbery)):
+            for b in range(int(numberx)):
                 if ct==1:
                     self.drawRectangles(qp,distance*(lminx+n),distance*(lminy+b),distance,distance,color)
                 pen.setStyle(Qt.DashLine)

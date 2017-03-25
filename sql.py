@@ -34,6 +34,7 @@ class Connect():
         tab=self.tabself(tab)
         self.Select(db,tab,mod)
         self.rows=self.cursor.fetchall()
+        return self.rows
     def Printall(self,db="",tab="*",mod=""):
         db=self.dbself(db)
         mod=self.modself(mod)
