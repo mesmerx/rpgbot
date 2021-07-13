@@ -13,7 +13,7 @@ soma=0
     
 class API():
     def __init__(self,token):
-        self.token="375722367:AAH4HoD2MITcxT8tS_Xwr-HdhLh_3-0ONVE"
+        self.token=""
    
     def Response(self,cmd,param=""):
         response = urllib.request.Request('https://api.telegram.org/bot{0}/{1}?{2}'.format(self.token, cmd,param))
